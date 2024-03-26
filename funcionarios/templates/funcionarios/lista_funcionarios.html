@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h1>Lista de Funcionários</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>EDV</th>
+                <th>Cargo</th>
+                <th>Setor</th>
+                <th>Endereço</th>
+                <th>Horário de Entreda</th>
+                <th>Horário de Saída</th>
+                <th>Data de admissão</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for funcionario in funcionarios %}
+            <tr>
+                <td>{{ funcionario.id }}</td>
+                <td>{{ funcionario.nome }}</td>
+                <td>{{ funcionario.edv }}</td>
+                <td>{{ funcionario.cargo }}</td>
+                <td>{{ funcionario.setor}}</td>
+                <td>{{ funcionario.endereco}}</td>
+                <td>{{ funcionario.horario_entrada}}</td>
+                <td>{{ funcionario.horario_saida}}</td>
+                <td>{{ funcionario.data_admissao}}</td>
+                <td>
+                    <a href="{% url 'edita_funcionario' funcionario.id %}" class="btn btn-primary">Editar</a>
+                    <a href="{% url 'deleta_funcionario' funcionario.id %}" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'cria_funcionario' %}" class="btn btn-success">Novo Funcionario</a>
+</div>
+{% endblock %}

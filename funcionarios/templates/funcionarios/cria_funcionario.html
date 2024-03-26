@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h1>Criar Novo Funcionário</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a href="{% url 'lista_funcionarios' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}
