@@ -1,0 +1,411 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .carousel-inner img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            margin-right: 20px;
+            /* Espaçamento à direita */
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin-right: 15px;
+            /* Espaçamento entre os itens */
+        }
+
+        header img {
+            width: 100px;
+            padding-left: 20px;
+        }
+
+        .text-center {
+            font-weight: 500;
+        }
+
+        .btn btn-secondary {
+            background-color: blue;
+        }
+
+        #modal button,
+        #contato button {
+            color: white;
+            font-weight: 500;
+        }
+
+        @media (max-width: 992px) {
+            .navbar-nav {
+                display: none;
+                /* Ocultar itens do menu quando a tela for menor que 992px */
+            }
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISTEMA DE CLIENTES</title>
+    <!-- Inclua links para os arquivos CSS do Bootstrap ou de outros estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="shortcut icon" href="./clientes/assets/images/fav_icon_bosch.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+</head>
+
+<body>
+    <header>
+        <!-- Cabeçalho com o logotipo e menu -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Título centralizado -->
+            <h1 class="navbar-brand title"><img
+                    src="https://th.bing.com/th/id/OIP._oEKJZpQCAJjr8Q2Uya10QHaBp?rs=1&pid=ImgDetMain"
+                    alt="Logo Bosch"></a></h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login'%}">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'lista_clientes'%}">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'lista_funcionarios'%}">Funcionários</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'lista_produtos'%}">Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'sobre' %}">Sobre</a>
+                    </li>
+                    <!-- Adicione mais itens de menu conforme necessário -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Carrosel -->
+    <div class="carousel slide" data-bs-ride="carousel" id="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="3000">
+                <img src="https://cdn.pixabay.com/photo/2015/01/08/18/25/desk-593327_1280.jpg" alt="Tecnologia" />
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="https://cdn.pixabay.com/photo/2017/05/12/08/29/coffee-2306471_960_720.jpg" alt="Tecnologia" />
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="https://cdn.pixabay.com/photo/2016/03/26/13/09/cup-of-coffee-1280537_960_720.jpg" alt="Tecnologia" />
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carousel" class="active" data-bs-slide-to="0"></button>
+            <button type="button" data-bs-target="#carousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carousel" data-bs-slide-to="2"></button>
+        </div>
+    </div>
+
+    <!-- Sobre -->
+    <section id="sobre">
+        <div class="pt-5 pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <img src="https://th.bing.com/th/id/R.0f127d49b56634f0625bafcd408ac991?rik=%2bn2emY2BW2RvdQ&riu=http%3a%2f%2fwww.scurra.com.br%2fblog%2fwp-content%2fuploads%2f2014%2f12%2fManagement-Information-Systems.jpeg&ehk=0qeGMehR7YWaEZElrhLn6mP3wXhWgrEC42bXBm6eF9U%3d&risl=&pid=ImgRaw&r=0"
+                            class="d-block w-100 rounded" alt="tecnologia" />
+                    </div>
+                    <div class="col-md-7 mt-3 mt-md-0">
+                        <h2 class="section-title">
+                            Cadastro de Funcionários e Clientes
+                        </h2>
+                        <p>
+                            Nosso sistema de cadastro de funcionários e clientes é uma ferramenta robusta e intuitiva
+                            desenvolvida pela Bosch para gerenciar eficientemente informações cruciais sobre
+                            funcionários e clientes. Com funcionalidades poderosas e uma interface amigável, facilitamos
+                            o registro, atualização e gerenciamento de dados essenciais para o funcionamento eficaz de
+                            sua empresa.
+                        </p>
+                        <h3 class="section-title">
+                            Gerenciamento de Perfis
+                        </h3>
+                        <p>
+                            Oferecemos recursos avançados para categorização e organização de perfis de funcionários e
+                            clientes, facilitando a segmentação e personalização de comunicações e serviços.
+                        </p>
+                        <ul>
+                            <li>Controle de Acesso e Segurança</li>
+                            <li>Relatórios e Análises</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Situações em que o sistema é útil -->
+    <section id="ocasiões" class="pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <h2 class="section-title text-center">
+                    Potencializando a Eficiência e Conformidade Empresarial
+                </h2>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <img src="https://th.bing.com/th/id/R.8611b891fad6bc72988c4376058a7cd9?rik=5r294Cfa7%2bugOg&pid=ImgRaw&r=0"
+                        alt="tecnologia" class="d-block w-100 rounded mb-2" />
+                    <h3 class="section-title text-colored fs-4">
+                        <i class="bi bi-cone-striped"></i>
+                        Análise e Tomada de Decisão Baseada em Dados:
+                    </h3>
+                    <p>
+                        O sistema oferece recursos avançados de geração de relatórios e análises, permitindo que os
+                        gestores e tomadores de decisão acessem informações valiosas sobre funcionários e clientes.
+                        Essas análises podem incluir métricas de desempenho, tendências de vendas, comportamento do
+                        cliente e muito mais. Com base nessas informações, as empresas podem tomar decisões estratégicas
+                        mais informadas e orientadas por dados para melhorar a eficiência operacional e impulsionar o
+                        crescimento.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <img src="https://th.bing.com/th/id/OIP.HvODMWMugIlcpG_Qup-UtgHaE8?w=1000&h=668&rs=1&pid=ImgDetMain"
+                        alt="tecnologia" class="d-block w-100 rounded mb-2" />
+                    <h3 class="section-title text-colored fs-4">
+                        <i class="bi bi-cone-striped"></i>
+                        Manutenção de Dados Precisos e Conformidade Regulatória
+                    </h3>
+                    <p>
+                        O sistema é útil para garantir que a empresa esteja em conformidade com regulamentos e leis
+                        trabalhistas. Manter registros detalhados dos funcionários, incluindo contratos, certificações,
+                        treinamentos e outras informações relevantes, ajuda a empresa a cumprir obrigações legais e
+                        regulatórias. Além disso, o sistema pode facilitar auditorias internas e externas, fornecendo
+                        acesso rápido a documentos e informações necessárias para demonstrar conformidade. Isso é
+                        especialmente crucial em setores altamente regulamentados, como saúde, financeiro e
+                        governamental.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <img src="https://th.bing.com/th/id/OIP.HvODMWMugIlcpG_Qup-UtgHaE8?w=1000&h=668&rs=1&pid=ImgDetMain"
+                        alt="tecnologia" alt="" class="d-block w-100 rounded mb-2" />
+                    <h3 class="section-title text-colored fs-4">
+                        <i class="bi bi-cone-striped"></i>
+                        Gerenciamento de Recursos Humanos Eficiente:
+                    </h3>
+                    <p>
+                        O sistema de cadastro de funcionários permite que os departamentos de recursos humanos organizem
+                        e mantenham informações detalhadas sobre todos os funcionários da empresa. Isso é
+                        particularmente útil para o gerenciamento de dados pessoais, históricos de emprego, informações
+                        de contato e outros detalhes relevantes. Além disso, a funcionalidade de controle de acesso e
+                        permissões ajuda a garantir que apenas as pessoas autorizadas tenham acesso a informações
+                        confidenciais dos funcionários.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Perguntas frequentes -->
+    <section id="perguntas-frequentes">
+        <div class="container mt-5 p-2">
+            <h2 class="section-title text-center mb-5">Perguntas Frequentes (FAQ)</h1>
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Como posso acessar o sistema?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>
+                                    Você pode acessar o sistema através de um navegador da web usando suas credenciais
+                                    de login fornecidas pela administração.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Posso atualizar as informações do meu perfil?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Sim, você pode atualizar suas informações de perfil a qualquer momento, fazendo login no
+                                sistema e acessando a seção de perfil.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                O sistema é seguro para armazenar dados confidenciais?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Sim, implementamos medidas de segurança avançadas para proteger seus dados pessoais e
+                                confidenciais contra acesso não autorizado.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Posso exportar relatórios personalizados do sistema?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Sim, você pode gerar e exportar relatórios personalizados com base em suas necessidades
+                                específicas de análise e relatórios.
+                                Estamos constantemente trabalhando para melhorar e aprimorar nosso sistema, garantindo
+                                uma experiência de usuário excepcional e resultados eficazes para nossos clientes. Se
+                                você tiver alguma dúvida adicional, não hesite em nos contatar.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- Fale conosco -->
+    <section id="contato" class="pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <h2 class="section-title text-center">
+                    Fale <span class="text-colored">conosco</span>
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mb-5">
+                    <form class="meuFormulario">
+                        <div class="mb-3">
+                            <label for="nome" class="form-label fw-bold text-colored">Seu nome</label>
+                            <input type="text" id="nome" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-bold text-colored">Seu e-mail</label>
+                            <input type="email" id="email" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefone" class="form-label fw-bold text-colored">Seu telefone
+                                (opcional)</label>
+                            <input type="tel" id="telefone" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="mensagem" class="form-label fw-bold text-colored">Sua mensagem</label>
+                            <textarea class="form-control" id="mensagem" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg" data-bs-toggle="modal"
+                            data-bs-target="#myModal" id="botaoEnviar">Enviar</button>
+                    </form>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <section id="modal">
+        <div class="container">
+            <!-- Trigger the modal with a button -->
+
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Mensagem enviada com sucesso!</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Em breve retomaremos o contato.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="mt-4">
+        <!-- Rodapé do site -->
+        <div class="text-center">
+            © 2024 PROJETO CRUD COM DJANGO - DTA BOSCH. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <div class="container mt-4">
+        <!-- Conteúdo da página -->
+        {% block content %}{% endblock %}
+    </div>
+
+    <script>
+        document.getElementById('botaoEnviar').addEventListener('click', function (event) {
+            event.preventDefault(); // Previne o envio padrão do formulário
+
+            var nome = document.getElementById('nome').value;
+            var email = document.getElementById('email').value;
+            var telefone = document.getElementById('telefone').value;
+            var mensagem = document.getElementById('mensagem').value;
+
+            if (nome.trim() !== '' && email.trim() !== '' && telefone.trim() !== '' && mensagem.trim() !== '') {
+                // Se todos os campos estiverem preenchidos, exibe o modal de mensagem enviada com sucesso
+                var myModal = new bootstrap.Modal(document.getElementById('myModal'));
+                myModal.show();
+            }
+
+            else {
+
+            }
+        });
+    </script>
+
+    <!-- Inclua links para os arquivos JavaScript do Bootstrap ou de outros scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

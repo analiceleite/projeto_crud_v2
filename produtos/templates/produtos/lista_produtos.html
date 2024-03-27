@@ -1,6 +1,17 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 <div class="container">
+    <style>
+        footer {
+
+            height: 30px;
+            width: 100%;
+            position: absolute;
+            bottom: 0%;
+            text-align: center;
+        }
+    </style>
     <h1>Lista de Produtos</h1>
     <table class="table table-striped">
         <thead>
@@ -13,6 +24,7 @@
                 <th>Voltagem</th>
                 <th>Marca</th>
                 <th>Tipo</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>

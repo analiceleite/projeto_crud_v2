@@ -1,6 +1,18 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 <div class="container">
+    <style>
+        footer {
+
+            height: 30px;
+            width: 100%;
+            position: absolute;
+            bottom: 0%;
+            text-align: center;
+        }
+    </style>
+
     <h1>Lista de Clientes</h1>
     <table class="table table-striped">
         <thead>
@@ -9,7 +21,7 @@
                 <th>Nome</th>
                 <th>Endereço</th>
                 <th>CPF</th>
-                <th>Data de Nascimento</th>
+                <th>Data de nascimento</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -31,4 +43,5 @@
     </table>
     <a href="{% url 'cria_cliente' %}" class="btn btn-success">Novo Cliente</a>
 </div>
+
 {% endblock %}

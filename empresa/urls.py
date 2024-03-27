@@ -10,9 +10,9 @@ urlpatterns = [
     path('funcionarios/', include('funcionarios.urls')),
     path('login/', include('login.urls')),
     path('produtos/', include('produtos.urls')),
+    path('sobre/', lambda request: render(request,'clientes/sobre.html'), name='sobre'),  
     path('', lambda request: redirect('login'), name='home'),  # Redireciona para a página de login
     path('accounts/', include('django.contrib.auth.urls')),    
-  
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
