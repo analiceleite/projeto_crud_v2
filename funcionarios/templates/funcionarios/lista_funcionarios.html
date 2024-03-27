@@ -1,18 +1,21 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 <div class="container">
     <h1>Lista de Funcionários</h1>
     <table class="table table-striped">
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Nome</th>
                 <th>EDV</th>
                 <th>Cargo</th>
                 <th>Setor</th>
                 <th>Endereço</th>
-                <th>Horário de Entreda</th>
-                <th>Horário de Saída</th>
+                <th>Horário de entrada</th>
+                <th>Horário de saída</th>
                 <th>Data de admissão</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +38,6 @@
             {% endfor %}
         </tbody>
     </table>
-    <a href="{% url 'cria_funcionario' %}" class="btn btn-success">Novo Funcionario</a>
+    <a href="{% url 'cria_funcionario' %}" class="btn btn-success">Novo Funcionário</a>
 </div>
 {% endblock %}

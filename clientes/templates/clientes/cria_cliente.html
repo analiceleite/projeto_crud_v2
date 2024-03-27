@@ -1,12 +1,28 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <div class="container">
-    <h1>Criar Novo Cliente</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Salvar</button>
-        <a href="{% url 'lista_clientes' %}" class="btn btn-secondary">Cancelar</a>
-    </form>
+  <style>
+    .container {
+      padding-left: 20px;
+      display: table-caption;
+    }
+
+    .container input,
+    textarea {
+      padding-left: 5px;
+      width: 400px; 
+      height: 30px;
+    }
+
+    .container label {
+      padding-bottom: 5px;
+    }
+  </style>
+
+  <h1>Criar Novo Cliente</h1>
+  <form method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a href="{% url 'lista_clientes' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
 </div>
 {% endblock %}

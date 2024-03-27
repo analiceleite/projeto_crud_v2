@@ -1,20 +1,34 @@
 {% block content %}
 {% load static %}
 <style>
-    
+    .custom-label {
+        font-weight: bold;
+        color: #333;
+        /* Outros estilos personalizados */
+    }
+
+    .custom-input {
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        /* Outros estilos personalizados */
+    }
     .container {
+        font-family: Arial, Helvetica, sans-serif;
         max-width: 400px; /* Largura máxima do conteúdo na página */
         margin: 0 auto; /* Centralizar o conteúdo na página */
-        padding: 20px; /* Espaçamento interno para melhor visualização */
+        padding: 150px; /* Espaçamento interno para melhor visualização */
         text-align: center; /* Centralizar texto e elementos */
     }
 
-    .logo {
-        width: 300px; /* Tamanho da logo */
-        margin-bottom: 20px; /* Espaçamento inferior */
+    img {
+        margin-right: 40px;
+        width: 300px;
+        height: 60px;
     }
 
     .form-group {
+        padding: 10px;
         margin-bottom: 20px; /* Espaçamento inferior entre os campos */
     }
 
@@ -25,12 +39,24 @@
     }
 
     .btn-primary {
-        width: 30%; /* Botão de largura total */
+        width: 1280px; /* Botão de largura total */
     }
 
     .error-message {
         color: red ; /* Cor do texto de erro */        
     }
+    
+    footer {
+
+    height: 30px;
+    width: 100%;
+    position: absolute;
+    bottom: 0%;
+    text-align: center;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    }
+
 </style>
 
 <div class="container">
@@ -38,25 +64,31 @@
     <header>
         <h1 class="navbar-brand title"><img src="https://th.bing.com/th/id/OIP._oEKJZpQCAJjr8Q2Uya10QHaBp?rs=1&pid=ImgDetMain" alt="Logo Bosch"></a></h1>
     </header>
-
-    <h1>Login de Acesso ao Sistema</h1>
+    <br>
+    <h1 class="fs-2">Bem vindo!</h1>
     <form method="post">
         {% csrf_token %}
         <div class="form-group">
-            <label for="id_username">Usuário:</label>
-            <input type="text" class="form-control" id="id_username" name="username" placeholder="Username" required>
+            <label for="id_username" class="custom-label">Usuário:</label>
+            <input type="text" class="form-control custom-input" id="id_username" name="username" placeholder="Username" required>
         </div>
         <div class="form-group">
-            <label for="id_password">Password:</label>
-            <input type="password" class="form-control" id="id_password" name="password" placeholder="Password" required>
+            <label for="id_password" class="custom-label">Password:</label>
+            <input type="password" class="form-control custom-input" id="id_password" name="password" placeholder="Password" required>
         </div>
         {% if form.errors %}
-        <div class="error-message">
-            <p>Nome de usuário ou senha incorretos.</p>
+        <div class="alert alert-danger" role="alert">
+            <strong>Erro:</strong> Nome de usuário ou senha incorretos.
         </div>
         {% endif %}
         <button type="submit" class="btn btn-primary">Entrar</button>
     </form>
 </div>
+<footer class="mt-4">
+    <!-- Rodapé do site -->
+    <div class="text-center">
+        © 2024 PROJETO CRUD COM DJANGO - DTA BOSCH. Todos os direitos reservados.
+    </div>
+</footer>
 
 {% endblock %}
