@@ -77,44 +77,45 @@ Deverá aparecer (venv) em verde após e execução do código anterior.
 
 <h3>Instalação do Django<h3>
 
-        <strong>Instale o Django usando o PIP (Python Package Installer). Execute o seguinte comando:</strong>
+<strong>Instale o Django usando o PIP (Python Package Installer). Execute o seguinte comando:</strong>
 
-        <strong>pip install Django</strong>
+<strong>pip install Django</strong>
 
-        <strong>Verifique se a instalação foi bem-sucedida digitando o seguinte comando para exibir a versão do Django
-            instalada:</strong>
+<strong>Verifique se a instalação foi bem-sucedida digitando o seguinte comando para exibir a versão do Django
+instalada:</strong>
 
-        <strong>django-admin --version</strong>
+<strong>django-admin --version</strong>
 
-        <h3>Executando o Servidor</h3>
+<h3>Executando o Servidor</h3>
 
-        <strong>Utilize o comando abaixo para executar o projeto de aplicação web, digite no terminal:</strong>
+<strong>Utilize o comando abaixo para executar o projeto de aplicação web, digite no terminal:</strong>
 
-        <code>python manage.py runserver </code>
+<code>python manage.py runserver </code>
 
-        Se foi criado tudo certo até o momento, deverá ser executado indicando a seguinte mensagem no terminal.
+Se foi criado tudo certo até o momento, deverá ser executado indicando a seguinte mensagem no terminal.
 
-        <code>  Django version ?.?.?, using settings 'clientes.settings'
-                Starting development server at http://127.0.0.1:8000/
-    </code>
-        Esse é o número do servidor web local(padrão) para abrir a aplicação web. Toda vez que precisar executar a
-        aplicação preciso iniciar o servidor.
+<code>Django version ?.?.?, using settings 'clientes.settings'
+Starting development server at http://127.0.0.1:8000/
+</code>
 
-        <ul>
-            <li>
-                Verifique se o projeto está rodando:
-            <li>
-                Página inicial: http://localhost:8000
-            </li>
-            </li>
-        </ul>
+Esse é o número do servidor web local(padrão) para abrir a aplicação web. Toda vez que precisar executar a
+aplicação preciso iniciar o servidor.
 
-        <h3>Passo 6: Criar um Superusuário (Opcional)</h3>
+<ul>
+    <li>
+        Verifique se o projeto está rodando:
+    </li>
+    <li>
+        ágina inicial: http://localhost:8000
+    </li>>
+</ul>
 
-        Se precisar acessar o painel de administração do Django, crie um superusuário executando o seguinte comando:
+<h3>Passo 6: Criar um Superusuário (Opcional)</h3>
 
-        <code>python manage.py createsuperuser
-            Siga as instruções para criar o superusuário.</code>
+Se precisar acessar o painel de administração do Django, crie um superusuário executando o seguinte comando:
 
-        Agora você configurou e está executando o projeto de cadastro de funcionários e clientes em sua máquina local.
-        Sinta-se à vontade para explorar e utilizar as funcionalidades do projeto!
+<code>python manage.py createsuperuser
+      Siga as instruções para criar o superusuário.</code>
+
+Agora você configurou e está executando o projeto de cadastro de funcionários e clientes em sua máquina local.
+Sinta-se à vontade para explorar e utilizar as funcionalidades do projeto!
