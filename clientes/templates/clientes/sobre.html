@@ -120,7 +120,8 @@
                 <img src="https://cdn.pixabay.com/photo/2017/05/12/08/29/coffee-2306471_960_720.jpg" alt="Tecnologia" />
             </div>
             <div class="carousel-item" data-bs-interval="3000">
-                <img src="https://cdn.pixabay.com/photo/2016/03/26/13/09/cup-of-coffee-1280537_960_720.jpg" alt="Tecnologia" />
+                <img src="https://cdn.pixabay.com/photo/2016/03/26/13/09/cup-of-coffee-1280537_960_720.jpg"
+                    alt="Tecnologia" />
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
@@ -318,52 +319,31 @@
             </div>
             <div class="row">
                 <div class="col-md-12 mb-5">
-                    <form class="meuFormulario">
+                    <form method="post">
+                        {% csrf_token %}
                         <div class="mb-3">
                             <label for="nome" class="form-label fw-bold text-colored">Seu nome</label>
-                            <input type="text" id="nome" class="form-control" required />
+                            <input type="text" id="nome" class="form-control custom-input" placeholder="Nome:"
+                                required />
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label fw-bold text-colored">Seu e-mail</label>
-                            <input type="email" id="email" class="form-control" required />
+                            <input type="email" id="email" class="form-control custom-input" placeholder="E-mail:"
+                                required />
                         </div>
                         <div class="mb-3">
                             <label for="telefone" class="form-label fw-bold text-colored">Seu telefone
                                 (opcional)</label>
-                            <input type="tel" id="telefone" class="form-control" />
+                            <input type="tel" id="telefone" class="form-control custom-input" placeholder="Telefone:" />
                         </div>
                         <div class="mb-3">
                             <label for="mensagem" class="form-label fw-bold text-colored">Sua mensagem</label>
-                            <textarea class="form-control" id="mensagem" required></textarea>
+                            <textarea class="form-control custom-input" placeholder="Mensagem:" id="mensagem"
+                                required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-lg" data-bs-toggle="modal"
-                            data-bs-target="#myModal" id="botaoEnviar">Enviar</button>
+                        <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
                     </form>
                     </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal -->
-    <section id="modal">
-        <div class="container">
-            <!-- Trigger the modal with a button -->
-
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Mensagem enviada com sucesso!</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>Em breve retomaremos o contato.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -381,26 +361,6 @@
         {% block content %}{% endblock %}
     </div>
 
-    <script>
-        document.getElementById('botaoEnviar').addEventListener('click', function (event) {
-            event.preventDefault(); // Previne o envio padrão do formulário
-
-            var nome = document.getElementById('nome').value;
-            var email = document.getElementById('email').value;
-            var telefone = document.getElementById('telefone').value;
-            var mensagem = document.getElementById('mensagem').value;
-
-            if (nome.trim() !== '' && email.trim() !== '' && telefone.trim() !== '' && mensagem.trim() !== '') {
-                // Se todos os campos estiverem preenchidos, exibe o modal de mensagem enviada com sucesso
-                var myModal = new bootstrap.Modal(document.getElementById('myModal'));
-                myModal.show();
-            }
-
-            else {
-
-            }
-        });
-    </script>
 
     <!-- Inclua links para os arquivos JavaScript do Bootstrap ou de outros scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
