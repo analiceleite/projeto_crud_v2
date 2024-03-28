@@ -24,7 +24,7 @@ Certifique-se de ter o seguinte instalado em sua máquina:
 Clone o repositório do projeto em sua máquina local, via Git Bash:
 
 
-<code> git clone https://github.com/analiceleite/projeto_crud_v2/edit/main/README.MD
+<code>git clone https://github.com/analiceleite/projeto_crud_v2/edit/main/README.MD
 cd projeto_crud_v2/ </code>
 
 
