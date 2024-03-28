@@ -23,10 +23,10 @@ Certifique-se de ter o seguinte instalado em sua máquina:
 
 Clone o repositório do projeto em sua máquina local, via Git Bash:
 
-<code>
-    git clone <url_do_repositorio>
-    cd <nome_do_projeto>
-</code>
+
+<code> git clone https://github.com/analiceleite/projeto_crud_v2/edit/main/README.MD
+cd projeto_crud_v2/ </code>
+
 
 <h2>Passo 2: Instalação e configuração do PIP </h2>
 
