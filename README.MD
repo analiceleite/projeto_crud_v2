@@ -106,8 +106,8 @@ aplicação preciso iniciar o servidor.
         Verifique se o projeto está rodando:
     </li>
     <li>
-        ágina inicial: http://localhost:8000
-    </li>>
+        Página inicial: http://localhost:8000
+    </li>
 </ul>
 
 <h3>Passo 6: Criar um Superusuário (Opcional)</h3>
